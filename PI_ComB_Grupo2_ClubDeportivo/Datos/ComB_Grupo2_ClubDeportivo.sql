@@ -23,6 +23,8 @@ constraint pk_usuario primary key (CodUsu),
 constraint fk_usuario foreign key(RolUsu) references roles(RolUsu)
 );
 
+
+
 insert into usuario(NombreUsu,PassUsu,RolUsu) values
 ('Usuario_a','a',99),
 ('Usuario_b','b',100), 
@@ -32,8 +34,18 @@ create table socios(
 IdSocio int unsigned auto_increment,
 Nombre varchar(30),
 Apellido varchar(40),
-DNI int unsigned,
+DNI int unsigned unique, 
 Activo boolean default true,
 FechaIngreso DateTime default now(),
 constraint pk_socios primary key(IdSocio)
+);
+
+create table fichaMedica(
+DNI int unsigned,
+PuedeRealizarActividadFisica bool,
+ConsumeMedicamentos bool,
+enfPreex varchar (40),
+Observaciones varchar (40),
+PRIMARY KEY (DNI),
+FOREIGN KEY (DNI) REFERENCES socios(DNI)
 );
