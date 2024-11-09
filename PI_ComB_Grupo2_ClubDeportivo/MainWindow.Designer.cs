@@ -96,8 +96,9 @@
             button2.Name = "button2";
             button2.Size = new Size(350, 123);
             button2.TabIndex = 1;
-            button2.Text = "button2";
+            button2.Text = "Administrar Socio";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -124,7 +125,7 @@
             button4.Name = "button4";
             button4.Size = new Size(350, 124);
             button4.TabIndex = 3;
-            button4.Text = "button4";
+            button4.Text = "Panel de Control";
             button4.UseVisualStyleBackColor = false;
             // 
             // tableLayoutPanel3
@@ -157,13 +158,16 @@
             // button5
             // 
             button5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button5.Location = new Point(700, 25);
+            button5.BackColor = Color.IndianRed;
+            button5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            button5.ForeColor = SystemColors.ControlLightLight;
+            button5.Location = new Point(635, 25);
             button5.Margin = new Padding(25);
             button5.Name = "button5";
-            button5.Size = new Size(75, 23);
+            button5.Size = new Size(140, 53);
             button5.TabIndex = 1;
             button5.Text = "Salir";
-            button5.UseVisualStyleBackColor = true;
+            button5.UseVisualStyleBackColor = false;
             button5.Click += btnSalirClick;
             // 
             // MainWindow

@@ -20,7 +20,9 @@ namespace PI_ComB_Grupo2_ClubDeportivo {
         private void onLoad(object sender, EventArgs e) {
             label1.Text += " " + usuario.NombreUsu + " (" + usuario.RolUsu + ")";
             button1.Enabled = (usuario.RolUsu == "Administrador" || usuario.RolUsu == "Recepcionista");
-
+            button2.Enabled = (usuario.RolUsu == "Administrador" || usuario.RolUsu == "Recepcionista");
+            //button3.Enabled = (usuario.RolUsu == "Administrador" || usuario.RolUsu == "Profesor");
+            //button4.Enabled = (usuario.RolUsu == "Administrador");
         }
 
         private void btnSalirClick(object sender, EventArgs e) {
@@ -28,9 +30,15 @@ namespace PI_ComB_Grupo2_ClubDeportivo {
         }
 
         private void button1_Click(object sender, EventArgs e) {
-            NewAspirante newAspirante = new NewAspirante();
+            NewAspirante newAspirante = new NewAspirante(this);
             newAspirante.usuario = usuario;
             newAspirante.Show();
+            this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e) {
+            MenuDeSocio menuDeSocio = new MenuDeSocio(this);
+            menuDeSocio.Show();
             this.Hide();
         }
     }
