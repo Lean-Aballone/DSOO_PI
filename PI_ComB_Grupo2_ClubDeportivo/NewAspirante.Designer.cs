@@ -31,15 +31,14 @@
             btnLimpiar = new Button();
             buttonVolver = new Button();
             tableLayoutPanel4 = new TableLayoutPanel();
-            label7 = new Label();
-            label6 = new Label();
-            label2 = new Label();
             label3 = new Label();
-            label4 = new Label();
             textBox1 = new TextBox();
             textBox2 = new TextBox();
+            label2 = new Label();
+            label4 = new Label();
             textBox3 = new TextBox();
             label5 = new Label();
+            checkBox1 = new CheckBox();
             pictureBox1 = new PictureBox();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -103,8 +102,8 @@
             tableLayoutPanel3.Controls.Add(btnLimpiar, 1, 0);
             tableLayoutPanel3.Controls.Add(buttonVolver, 2, 0);
             tableLayoutPanel3.Dock = DockStyle.Fill;
-            tableLayoutPanel3.Location = new Point(0, 305);
-            tableLayoutPanel3.Margin = new Padding(0, 0, 0, 45);
+            tableLayoutPanel3.Location = new Point(0, 325);
+            tableLayoutPanel3.Margin = new Padding(0, 0, 0, 25);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 1;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
@@ -153,85 +152,36 @@
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 46.3461533F));
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 23.6538467F));
-            tableLayoutPanel4.Controls.Add(label7, 2, 2);
-            tableLayoutPanel4.Controls.Add(label6, 2, 1);
-            tableLayoutPanel4.Controls.Add(label2, 0, 0);
             tableLayoutPanel4.Controls.Add(label3, 0, 1);
-            tableLayoutPanel4.Controls.Add(label4, 0, 2);
             tableLayoutPanel4.Controls.Add(textBox1, 1, 0);
             tableLayoutPanel4.Controls.Add(textBox2, 1, 1);
+            tableLayoutPanel4.Controls.Add(label2, 0, 0);
+            tableLayoutPanel4.Controls.Add(label4, 0, 2);
             tableLayoutPanel4.Controls.Add(textBox3, 1, 2);
-            tableLayoutPanel4.Controls.Add(label5, 2, 0);
+            tableLayoutPanel4.Controls.Add(label5, 0, 3);
+            tableLayoutPanel4.Controls.Add(checkBox1, 1, 3);
             tableLayoutPanel4.Dock = DockStyle.Fill;
             tableLayoutPanel4.Location = new Point(0, 90);
             tableLayoutPanel4.Margin = new Padding(0);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
-            tableLayoutPanel4.RowCount = 3;
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel4.Size = new Size(520, 215);
+            tableLayoutPanel4.RowCount = 4;
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+            tableLayoutPanel4.Size = new Size(520, 235);
             tableLayoutPanel4.TabIndex = 2;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.ForeColor = Color.Red;
-            label7.Location = new Point(402, 167);
-            label7.Margin = new Padding(5, 25, 25, 25);
-            label7.Name = "label7";
-            label7.Size = new Size(25, 23);
-            label7.TabIndex = 8;
-            label7.Text = "*";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.ForeColor = Color.Red;
-            label6.Location = new Point(402, 96);
-            label6.Margin = new Padding(5, 25, 25, 25);
-            label6.Name = "label6";
-            label6.Size = new Size(25, 21);
-            label6.TabIndex = 7;
-            label6.Text = "*";
-            // 
-            // label2
-            // 
-            label2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label2.AutoSize = true;
-            label2.Location = new Point(90, 25);
-            label2.Margin = new Padding(5, 25, 15, 25);
-            label2.Name = "label2";
-            label2.Padding = new Padding(0, 5, 0, 0);
-            label2.Size = new Size(51, 20);
-            label2.TabIndex = 0;
-            label2.Text = "Nombre";
             // 
             // label3
             // 
-            label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             label3.AutoSize = true;
-            label3.Location = new Point(90, 96);
-            label3.Margin = new Padding(5, 25, 15, 25);
+            label3.Location = new Point(90, 83);
+            label3.Margin = new Padding(5, 25, 15, 10);
             label3.Name = "label3";
-            label3.Padding = new Padding(0, 5, 0, 0);
-            label3.Size = new Size(51, 20);
+            label3.Size = new Size(51, 23);
             label3.TabIndex = 1;
             label3.Text = "Apellido";
-            // 
-            // label4
-            // 
-            label4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label4.AutoSize = true;
-            label4.Location = new Point(40, 167);
-            label4.Margin = new Padding(5, 25, 15, 25);
-            label4.Name = "label4";
-            label4.Padding = new Padding(0, 5, 0, 0);
-            label4.Size = new Size(101, 20);
-            label4.TabIndex = 2;
-            label4.Text = "Documento (DNI)";
             // 
             // textBox1
             // 
@@ -245,32 +195,66 @@
             // textBox2
             // 
             textBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBox2.Location = new Point(161, 96);
+            textBox2.Location = new Point(161, 83);
             textBox2.Margin = new Padding(5, 25, 5, 25);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(231, 23);
             textBox2.TabIndex = 4;
             // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            label2.AutoSize = true;
+            label2.Location = new Point(90, 25);
+            label2.Margin = new Padding(5, 25, 15, 10);
+            label2.Name = "label2";
+            label2.Size = new Size(51, 23);
+            label2.TabIndex = 0;
+            label2.Text = "Nombre";
+            // 
+            // label4
+            // 
+            label4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            label4.AutoSize = true;
+            label4.Location = new Point(40, 141);
+            label4.Margin = new Padding(5, 25, 15, 10);
+            label4.Name = "label4";
+            label4.Size = new Size(101, 23);
+            label4.TabIndex = 2;
+            label4.Text = "Documento (DNI)";
+            // 
             // textBox3
             // 
             textBox3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBox3.Location = new Point(161, 167);
-            textBox3.Margin = new Padding(5, 25, 5, 25);
+            textBox3.Location = new Point(161, 141);
+            textBox3.Margin = new Padding(5, 25, 5, 0);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(231, 23);
             textBox3.TabIndex = 5;
             // 
             // label5
             // 
+            label5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.ForeColor = Color.Red;
-            label5.Location = new Point(402, 25);
-            label5.Margin = new Padding(5, 25, 25, 25);
+            label5.Location = new Point(75, 199);
+            label5.Margin = new Padding(5, 25, 15, 10);
             label5.Name = "label5";
-            label5.Size = new Size(25, 21);
-            label5.TabIndex = 6;
-            label5.Text = "*";
+            label5.Size = new Size(66, 26);
+            label5.TabIndex = 7;
+            label5.Text = "Apto Fisico";
+            // 
+            // checkBox1
+            // 
+            checkBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            checkBox1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            checkBox1.Location = new Point(161, 199);
+            checkBox1.Margin = new Padding(5, 25, 5, 15);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(200, 21);
+            checkBox1.TabIndex = 6;
+            checkBox1.Text = "Presentado";
+            checkBox1.UseVisualStyleBackColor = true;
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
             // 
             // pictureBox1
             // 
@@ -313,15 +297,14 @@
         private Button btnLimpiar;
         private Button buttonVolver;
         private TableLayoutPanel tableLayoutPanel4;
-        private Label label7;
-        private Label label6;
         private Label label2;
         private Label label3;
         private Label label4;
         private TextBox textBox1;
         private TextBox textBox2;
         private TextBox textBox3;
-        private Label label5;
         private PictureBox pictureBox1;
+        private CheckBox checkBox1;
+        private Label label5;
     }
 }
