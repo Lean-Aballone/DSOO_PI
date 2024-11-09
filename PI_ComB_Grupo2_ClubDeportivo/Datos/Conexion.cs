@@ -23,7 +23,7 @@ namespace PI_ComB_Grupo2_ClubDeportivo.Datos {
             this.clave = "";
         }
 
-        public MySqlConnection CrearConcexion() {
+        public MySqlConnection CrearConexion() {
             // instanciamos una conexion
             MySqlConnection? cadena = new MySqlConnection();
             // el bloque try permite controlar errores
@@ -42,10 +42,7 @@ namespace PI_ComB_Grupo2_ClubDeportivo.Datos {
             return cadena;
         }
         public static Conexion getInstancia() {
-            if (con == null) // quiere decir que la conexion esta cerrada
-            {
-                con = new Conexion(); // se crea una nueva
-            }
+            if (con == null) con = new Conexion();
             return con;
         }
 
