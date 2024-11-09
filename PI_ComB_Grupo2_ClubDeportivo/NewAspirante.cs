@@ -1,4 +1,5 @@
 ﻿using PI_ComB_Grupo2_ClubDeportivo.Entidades;
+using PI_ComB_Grupo2_ClubDeportivo.Entidades.Inscripcion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,16 +9,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace PI_ComB_Grupo2_ClubDeportivo {
     public partial class NewAspirante : Form {
-
+        public MainWindow MainWindow { set; get; }
         public E_Usuario usuario { set; get; }
-        public NewAspirante() {
+        private bool fichaMedicaPresentada;
+        public NewAspirante(MainWindow mainWindow) {
             InitializeComponent();
+            fichaMedicaPresentada = false;
+            MainWindow = mainWindow;
         }
 
-        private void buttonIngresar_Click(object sender, EventArgs e) {
+        protected void buttonIngresar_Click(object sender, EventArgs e) {
 
             if (textBox1.Text == "" || textBox2.Text == "" ||
                 textBox3.Text == "") {
@@ -34,8 +39,17 @@ namespace PI_ComB_Grupo2_ClubDeportivo {
                     MessageBox.Show("EL SOCIO YA EXISTE", "AVISO DEL SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 } else {
                     MessageBox.Show("Socio Ingresado Correctamente", "AVISO DEL SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                    // SI ENTREGA LA FICHA MEDICA CAMBIAR A PANTALLA FICHAMEDICA
+                    // CARGAR LOS DATOS DE LA FICHA
+                    if (fichaMedicaPresentada) { 
+                        FichaMedica completarFicha = new FichaMedica(socio.Nombre,socio.Apellido,socio.DNI, this);
+                        completarFicha.Show();
+                        this.Hide();
+                    }
+                
+                
                 }
-                btnLimpiar_Click(sender,e);
+                btnLimpiar_Click(sender, e);
             }
 
         }
@@ -48,10 +62,16 @@ namespace PI_ComB_Grupo2_ClubDeportivo {
         }
 
         private void buttonVolver_Click(object sender, EventArgs e) {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.usuario = usuario;
-            mainWindow.Show();
-            this.Hide();
+            MainWindow.Show();
+            this.Close();
         }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e) {
+
+            fichaMedicaPresentada = (checkBox1.Checked) ? true : false;
+            
+        }
+
+
     }
 }
