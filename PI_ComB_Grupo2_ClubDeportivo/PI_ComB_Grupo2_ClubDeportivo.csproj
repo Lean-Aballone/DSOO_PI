@@ -13,6 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Entidades\Plantel\Servicios\Nutricion\" />
+    <Folder Include="Entidades\Socios\" />
     <Folder Include="Resources\" />
   </ItemGroup>
 
