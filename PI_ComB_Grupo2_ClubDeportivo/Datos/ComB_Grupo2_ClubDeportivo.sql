@@ -23,8 +23,6 @@ constraint pk_usuario primary key (CodUsu),
 constraint fk_usuario foreign key(RolUsu) references roles(RolUsu)
 );
 
-
-
 insert into usuario(NombreUsu,PassUsu,RolUsu) values
 ('Usuario_a','a',99),
 ('Usuario_b','b',100), 
@@ -38,6 +36,25 @@ DNI int unsigned unique,
 Activo boolean default true,
 FechaIngreso DateTime default now(),
 constraint pk_socios primary key(IdSocio)
+);
+
+create table formaDePago(
+	IdSocio int unsigned unique,
+    Cobro varchar(40),
+    primary key (IdSocio),
+    foreign key (IdSocio) references socios(IdSocio)
+);
+
+create table cuota(
+Id int unsigned auto_increment,
+IdSocio int unsigned unique,
+Vencida boolean default false,
+Pagada boolean default false,
+Monto double,
+Vencimiento datetime,
+FechaPago datetime null,
+primary key(Id),
+foreign key(IdSocio) references socios(IdSocio)
 );
 
 create table fichaMedica(
