@@ -31,5 +31,11 @@ namespace PI_ComB_Grupo2_ClubDeportivo {
             completarFicha.Show();
             this.Hide();
         }
+
+        private void button3_Click(object sender, EventArgs e) {
+            CarnetSocio carnetSocio = new CarnetSocio(Socio, this);
+            carnetSocio.Show();
+            this.Hide();
+        }
     }
 }
