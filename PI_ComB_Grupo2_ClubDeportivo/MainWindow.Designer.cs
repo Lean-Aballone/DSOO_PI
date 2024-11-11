@@ -118,7 +118,6 @@
             // 
             button4.BackColor = Color.FromArgb(242, 225, 136);
             button4.Dock = DockStyle.Fill;
-            button4.Enabled = false;
             button4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button4.Location = new Point(425, 198);
             button4.Margin = new Padding(25);
@@ -127,6 +126,7 @@
             button4.TabIndex = 3;
             button4.Text = "Panel de Control";
             button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
             // 
             // tableLayoutPanel3
             // 

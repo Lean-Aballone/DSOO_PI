@@ -41,5 +41,11 @@ namespace PI_ComB_Grupo2_ClubDeportivo {
             menuDeSocio.Show();
             this.Hide();
         }
+
+        private void button4_Click(object sender, EventArgs e) {
+            PanelDeControl panelDeControl = new PanelDeControl(this);
+            panelDeControl.Show();
+            this.Hide();
+        }
     }
 }
