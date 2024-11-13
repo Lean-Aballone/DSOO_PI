@@ -31,6 +31,7 @@
             button4 = new Button();
             button5 = new Button();
             dataGridView1 = new DataGridView();
+            label1 = new Label();
             eSocioBindingSource = new BindingSource(components);
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -51,6 +52,7 @@
             tableLayoutPanel1.Controls.Add(button4, 2, 1);
             tableLayoutPanel1.Controls.Add(button5, 3, 1);
             tableLayoutPanel1.Controls.Add(dataGridView1, 0, 0);
+            tableLayoutPanel1.Controls.Add(label1, 4, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -95,29 +97,30 @@
             button3.Name = "button3";
             button3.Size = new Size(140, 70);
             button3.TabIndex = 6;
-            button3.Text = "button3";
+            button3.Text = "Listado de Vencimientos de Cuotas";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button4
             // 
             button4.Dock = DockStyle.Fill;
+            button4.Enabled = false;
             button4.Location = new Point(330, 370);
             button4.Margin = new Padding(10);
             button4.Name = "button4";
             button4.Size = new Size(140, 70);
             button4.TabIndex = 7;
-            button4.Text = "button4";
             button4.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
             button5.Dock = DockStyle.Fill;
+            button5.Enabled = false;
             button5.Location = new Point(490, 370);
             button5.Margin = new Padding(10);
             button5.Name = "button5";
             button5.Size = new Size(140, 70);
             button5.TabIndex = 8;
-            button5.Text = "button5";
             button5.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
@@ -139,6 +142,17 @@
             dataGridView1.Size = new Size(640, 360);
             dataGridView1.TabIndex = 9;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(655, 15);
+            label1.Margin = new Padding(15);
+            label1.Name = "label1";
+            label1.Size = new Size(44, 15);
+            label1.TabIndex = 10;
+            label1.Text = "Fecha: ";
+            label1.Visible = false;
+            // 
             // eSocioBindingSource
             // 
             eSocioBindingSource.DataSource = typeof(Entidades.E_Socio);
@@ -147,13 +161,15 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FloralWhite;
             ClientSize = new Size(800, 450);
             Controls.Add(tableLayoutPanel1);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "PanelDeControl";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "PanelDeControl";
-            Load += onLoad;
             tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)eSocioBindingSource).EndInit();
             ResumeLayout(false);
@@ -169,5 +185,6 @@
         private Button button5;
         private DataGridView dataGridView1;
         private BindingSource eSocioBindingSource;
+        private Label label1;
     }
 }
