@@ -15,6 +15,7 @@ namespace PI_ComB_Grupo2_ClubDeportivo {
     public partial class NewAspirante : Form {
         public MainWindow MainWindow { set; get; }
         public E_Usuario usuario { set; get; }
+        private string opcionPago;
         private bool fichaMedicaPresentada;
         public NewAspirante(MainWindow mainWindow) {
             InitializeComponent();
@@ -23,7 +24,8 @@ namespace PI_ComB_Grupo2_ClubDeportivo {
         }
 
         protected void buttonIngresar_Click(object sender, EventArgs e) {
-
+            if (radioButton1.Checked) opcionPago = radioButton1.Text;
+            if (radioButton2.Checked) opcionPago = radioButton2.Text;
             if (textBox1.Text == "" || textBox2.Text == "" ||
                 textBox3.Text == "") {
                 MessageBox.Show("Debe completar datos requeridos (*) ",
@@ -35,7 +37,7 @@ namespace PI_ComB_Grupo2_ClubDeportivo {
                 socio.Apellido = textBox2.Text;
                 socio.DNI = Convert.ToUInt32(textBox3.Text);
                 Datos.Socios dbSocio = new Datos.Socios();
-                if (dbSocio.insertSocio(socio).Length != 29) {
+                if (dbSocio.insertSocio(socio,opcionPago).Length != 29) {
                     MessageBox.Show("EL SOCIO YA EXISTE", "AVISO DEL SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 } else {
                     MessageBox.Show("Socio Ingresado Correctamente", "AVISO DEL SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Question);
@@ -46,8 +48,7 @@ namespace PI_ComB_Grupo2_ClubDeportivo {
                         completarFicha.Show();
                         this.Hide();
                     }
-                
-                
+                    dbSocio.GenerarCuota(socio,(opcionPago == radioButton1.Text));
                 }
                 btnLimpiar_Click(sender, e);
             }

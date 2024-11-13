@@ -1,6 +1,7 @@
 ﻿using Google.Protobuf.WellKnownTypes;
 using MySql.Data.MySqlClient;
 using PI_ComB_Grupo2_ClubDeportivo.Entidades;
+using PI_ComB_Grupo2_ClubDeportivo.Entidades.Cuota;
 using PI_ComB_Grupo2_ClubDeportivo.Entidades.Inscripcion;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ using System.Threading.Tasks;
 namespace PI_ComB_Grupo2_ClubDeportivo.Datos {
     internal class Socios {
 
-        public E_Socio getSocioFromDatabase(uint identificacion, bool esDNI) { 
+        public E_Socio getSocioFromDatabase(uint? identificacion, bool esDNI) { 
             E_Socio rta = new E_Socio();
             MySqlConnection sqlCon = new MySqlConnection();
             try {
@@ -66,7 +67,7 @@ namespace PI_ComB_Grupo2_ClubDeportivo.Datos {
             return rta;
         }
 
-        public string insertSocio(E_Socio socio) {
+        public string insertSocio(E_Socio socio, string OpcionPago) {
             string? salida;
             MySqlConnection sqlCon = new MySqlConnection();
             try {
@@ -77,7 +78,7 @@ namespace PI_ComB_Grupo2_ClubDeportivo.Datos {
                 comando.Parameters.Add("nom", MySqlDbType.VarChar).Value = socio.Nombre;
                 comando.Parameters.Add("ape", MySqlDbType.VarChar).Value = socio.Apellido;
                 comando.Parameters.Add("dni", MySqlDbType.UInt32).Value = socio.DNI;
-                
+                comando.Parameters.Add("fp", MySqlDbType.VarChar).Value = OpcionPago;
                 MySqlParameter ParCodigo = new MySqlParameter();
                 ParCodigo.ParameterName = "rta";
                 ParCodigo.MySqlDbType = MySqlDbType.String;
@@ -130,6 +131,11 @@ namespace PI_ComB_Grupo2_ClubDeportivo.Datos {
             return salida;
         }
 
+        public void GenerarCuota(E_Socio socio, bool fp) { 
+            Cuota cuota = new Cuota(fp);
+            cuota.Id_Socio = getSocioFromDatabase(socio.DNI, true).IdSocio;
+
+        }
 
     }
 }
