@@ -75,6 +75,7 @@
             button2.TabIndex = 4;
             button2.Text = "Generar Comprobante";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -185,7 +186,6 @@
             radioCuota6.Name = "radioCuota6";
             radioCuota6.Size = new Size(89, 25);
             radioCuota6.TabIndex = 2;
-            radioCuota6.TabStop = true;
             radioCuota6.Text = "6 Cuotas";
             radioCuota6.UseVisualStyleBackColor = true;
             // 
@@ -196,13 +196,13 @@
             radioCuota3.Name = "radioCuota3";
             radioCuota3.Size = new Size(89, 25);
             radioCuota3.TabIndex = 1;
-            radioCuota3.TabStop = true;
             radioCuota3.Text = "3 Cuotas";
             radioCuota3.UseVisualStyleBackColor = true;
             // 
             // radioCuota1
             // 
             radioCuota1.AutoSize = true;
+            radioCuota1.Checked = true;
             radioCuota1.Location = new Point(6, 28);
             radioCuota1.Name = "radioCuota1";
             radioCuota1.Size = new Size(82, 25);
@@ -242,7 +242,9 @@
             BackColor = Color.FloralWhite;
             ClientSize = new Size(800, 450);
             Controls.Add(tableLayoutPanel1);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "PagoCuota";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "PagoCuota";
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
