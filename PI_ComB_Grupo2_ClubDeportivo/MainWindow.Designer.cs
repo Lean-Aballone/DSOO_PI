@@ -177,6 +177,7 @@
             BackColor = Color.FloralWhite;
             ClientSize = new Size(800, 450);
             Controls.Add(tableLayoutPanel1);
+            FormBorderStyle = FormBorderStyle.SizableToolWindow;
             Name = "MainWindow";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainWindow";

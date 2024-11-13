@@ -180,6 +180,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(tableLayoutPanel1);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "FichaMedica";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FichaMedica";

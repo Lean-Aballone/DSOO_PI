@@ -209,6 +209,7 @@
             BackColor = Color.FloralWhite;
             ClientSize = new Size(800, 450);
             Controls.Add(splitContainer1);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "MenuDeSocio";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MenuDeSocio";

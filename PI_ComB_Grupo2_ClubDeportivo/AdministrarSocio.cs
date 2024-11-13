@@ -25,8 +25,9 @@ namespace PI_ComB_Grupo2_ClubDeportivo {
             MainWindow.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e) {
 
+
+        private void button2_Click(object sender, EventArgs e) {
             FichaMedica completarFicha = new FichaMedica(Socio, this);
             completarFicha.Show();
             this.Hide();
@@ -35,6 +36,23 @@ namespace PI_ComB_Grupo2_ClubDeportivo {
         private void button3_Click(object sender, EventArgs e) {
             CarnetSocio carnetSocio = new CarnetSocio(Socio, this);
             carnetSocio.Show();
+            this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e) {
+            GrillaCuotasSocio grillaCuotasSocio = new GrillaCuotasSocio(Socio, this);
+            grillaCuotasSocio.Show();
+            this.Hide();
+        }
+
+        private void onLoad(object sender, EventArgs e) {
+            label1.Text = "Nombre: " + Socio.Nombre + " " + Socio.Apellido +
+                "\nDNI: " + Socio.DNI;
+        }
+
+        private void button5_Click(object sender, EventArgs e) {
+            PagoCuota pagoCuota = new PagoCuota(Socio, this);
+            pagoCuota.Show();
             this.Hide();
         }
     }

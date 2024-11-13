@@ -27,6 +27,7 @@
             tableLayoutPanel2 = new TableLayoutPanel();
             label1 = new Label();
             tableLayoutPanel3 = new TableLayoutPanel();
+            buttonVolver = new Button();
             buttonIngresar = new Button();
             btnLimpiar = new Button();
             tableLayoutPanel4 = new TableLayoutPanel();
@@ -38,12 +39,16 @@
             textBox3 = new TextBox();
             label5 = new Label();
             checkBox1 = new CheckBox();
+            label6 = new Label();
+            groupBox1 = new GroupBox();
+            radioButton2 = new RadioButton();
+            radioButton1 = new RadioButton();
             pictureBox1 = new PictureBox();
-            buttonVolver = new Button();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
+            groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -111,6 +116,20 @@
             tableLayoutPanel3.Size = new Size(520, 100);
             tableLayoutPanel3.TabIndex = 1;
             // 
+            // buttonVolver
+            // 
+            buttonVolver.BackColor = Color.RosyBrown;
+            buttonVolver.Dock = DockStyle.Fill;
+            buttonVolver.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonVolver.Location = new Point(371, 25);
+            buttonVolver.Margin = new Padding(25);
+            buttonVolver.Name = "buttonVolver";
+            buttonVolver.Size = new Size(124, 50);
+            buttonVolver.TabIndex = 4;
+            buttonVolver.Text = "Volver";
+            buttonVolver.UseVisualStyleBackColor = false;
+            buttonVolver.Click += buttonVolver_Click;
+            // 
             // buttonIngresar
             // 
             buttonIngresar.BackColor = Color.Honeydew;
@@ -152,101 +171,157 @@
             tableLayoutPanel4.Controls.Add(textBox3, 1, 2);
             tableLayoutPanel4.Controls.Add(label5, 0, 3);
             tableLayoutPanel4.Controls.Add(checkBox1, 1, 3);
+            tableLayoutPanel4.Controls.Add(label6, 0, 4);
+            tableLayoutPanel4.Controls.Add(groupBox1, 1, 4);
             tableLayoutPanel4.Dock = DockStyle.Fill;
             tableLayoutPanel4.Location = new Point(0, 96);
             tableLayoutPanel4.Margin = new Padding(0);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
-            tableLayoutPanel4.RowCount = 4;
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+            tableLayoutPanel4.RowCount = 5;
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             tableLayoutPanel4.Size = new Size(520, 229);
             tableLayoutPanel4.TabIndex = 2;
             // 
             // label3
             // 
-            label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             label3.AutoSize = true;
-            label3.Location = new Point(90, 82);
-            label3.Margin = new Padding(5, 25, 15, 10);
+            label3.Dock = DockStyle.Fill;
+            label3.Location = new Point(5, 50);
+            label3.Margin = new Padding(5);
             label3.Name = "label3";
-            label3.Size = new Size(51, 22);
+            label3.Size = new Size(146, 35);
             label3.TabIndex = 1;
             label3.Text = "Apellido";
+            label3.TextAlign = ContentAlignment.MiddleRight;
             // 
             // textBox1
             // 
-            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBox1.Location = new Point(161, 25);
-            textBox1.Margin = new Padding(5, 25, 5, 25);
+            textBox1.Dock = DockStyle.Fill;
+            textBox1.Location = new Point(161, 10);
+            textBox1.Margin = new Padding(5, 10, 5, 5);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(231, 23);
             textBox1.TabIndex = 3;
             // 
             // textBox2
             // 
-            textBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBox2.Location = new Point(161, 82);
-            textBox2.Margin = new Padding(5, 25, 5, 25);
+            textBox2.Dock = DockStyle.Fill;
+            textBox2.Location = new Point(161, 55);
+            textBox2.Margin = new Padding(5, 10, 5, 5);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(231, 23);
             textBox2.TabIndex = 4;
             // 
             // label2
             // 
-            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             label2.AutoSize = true;
-            label2.Location = new Point(90, 25);
-            label2.Margin = new Padding(5, 25, 15, 10);
+            label2.Dock = DockStyle.Fill;
+            label2.Location = new Point(5, 5);
+            label2.Margin = new Padding(5);
             label2.Name = "label2";
-            label2.Size = new Size(51, 22);
+            label2.Size = new Size(146, 35);
             label2.TabIndex = 0;
             label2.Text = "Nombre";
+            label2.TextAlign = ContentAlignment.MiddleRight;
             // 
             // label4
             // 
-            label4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             label4.AutoSize = true;
-            label4.Location = new Point(40, 139);
-            label4.Margin = new Padding(5, 25, 15, 10);
+            label4.Dock = DockStyle.Fill;
+            label4.Location = new Point(5, 95);
+            label4.Margin = new Padding(5);
             label4.Name = "label4";
-            label4.Size = new Size(101, 22);
+            label4.Size = new Size(146, 35);
             label4.TabIndex = 2;
             label4.Text = "Documento (DNI)";
+            label4.TextAlign = ContentAlignment.MiddleRight;
             // 
             // textBox3
             // 
-            textBox3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBox3.Location = new Point(161, 139);
-            textBox3.Margin = new Padding(5, 25, 5, 0);
+            textBox3.Dock = DockStyle.Fill;
+            textBox3.Location = new Point(161, 100);
+            textBox3.Margin = new Padding(5, 10, 5, 5);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(231, 23);
             textBox3.TabIndex = 5;
             // 
             // label5
             // 
-            label5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             label5.AutoSize = true;
-            label5.Location = new Point(75, 196);
-            label5.Margin = new Padding(5, 25, 15, 10);
+            label5.Dock = DockStyle.Fill;
+            label5.Location = new Point(5, 140);
+            label5.Margin = new Padding(5);
             label5.Name = "label5";
-            label5.Size = new Size(66, 23);
+            label5.Size = new Size(146, 35);
             label5.TabIndex = 7;
             label5.Text = "Apto Fisico";
+            label5.TextAlign = ContentAlignment.MiddleRight;
             // 
             // checkBox1
             // 
-            checkBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            checkBox1.Dock = DockStyle.Fill;
             checkBox1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            checkBox1.Location = new Point(161, 196);
-            checkBox1.Margin = new Padding(5, 25, 5, 15);
+            checkBox1.Location = new Point(161, 140);
+            checkBox1.Margin = new Padding(5);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(200, 18);
+            checkBox1.Size = new Size(231, 35);
             checkBox1.TabIndex = 6;
             checkBox1.Text = "Presentado";
             checkBox1.UseVisualStyleBackColor = true;
             checkBox1.CheckedChanged += checkBox1_CheckedChanged;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Dock = DockStyle.Fill;
+            label6.Location = new Point(5, 185);
+            label6.Margin = new Padding(5);
+            label6.Name = "label6";
+            label6.Padding = new Padding(0, 0, 0, 5);
+            label6.Size = new Size(146, 39);
+            label6.TabIndex = 8;
+            label6.Text = "Sistema de cobro";
+            label6.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // groupBox1
+            // 
+            groupBox1.BackColor = Color.FloralWhite;
+            groupBox1.Controls.Add(radioButton2);
+            groupBox1.Controls.Add(radioButton1);
+            groupBox1.Dock = DockStyle.Fill;
+            groupBox1.FlatStyle = FlatStyle.Flat;
+            groupBox1.Location = new Point(156, 180);
+            groupBox1.Margin = new Padding(0, 0, 0, 10);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(241, 39);
+            groupBox1.TabIndex = 9;
+            groupBox1.TabStop = false;
+            // 
+            // radioButton2
+            // 
+            radioButton2.AutoSize = true;
+            radioButton2.Location = new Point(82, 14);
+            radioButton2.Name = "radioButton2";
+            radioButton2.Size = new Size(56, 19);
+            radioButton2.TabIndex = 1;
+            radioButton2.Text = "Diario";
+            radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            radioButton1.AutoSize = true;
+            radioButton1.Checked = true;
+            radioButton1.Location = new Point(6, 14);
+            radioButton1.Name = "radioButton1";
+            radioButton1.Size = new Size(70, 19);
+            radioButton1.TabIndex = 0;
+            radioButton1.TabStop = true;
+            radioButton1.Text = "Mensual";
+            radioButton1.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 
@@ -260,20 +335,6 @@
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
-            // buttonVolver
-            // 
-            buttonVolver.BackColor = Color.RosyBrown;
-            buttonVolver.Dock = DockStyle.Fill;
-            buttonVolver.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonVolver.Location = new Point(371, 25);
-            buttonVolver.Margin = new Padding(25);
-            buttonVolver.Name = "buttonVolver";
-            buttonVolver.Size = new Size(124, 50);
-            buttonVolver.TabIndex = 4;
-            buttonVolver.Text = "Volver";
-            buttonVolver.UseVisualStyleBackColor = false;
-            buttonVolver.Click += buttonVolver_Click;
-            // 
             // NewAspirante
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -281,6 +342,7 @@
             BackColor = Color.FloralWhite;
             ClientSize = new Size(800, 450);
             Controls.Add(tableLayoutPanel1);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "NewAspirante";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Nuevo Socio";
@@ -290,6 +352,8 @@
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel4.ResumeLayout(false);
             tableLayoutPanel4.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
@@ -313,5 +377,9 @@
         private CheckBox checkBox1;
         private Label label5;
         private Button buttonVolver;
+        private Label label6;
+        private GroupBox groupBox1;
+        private RadioButton radioButton2;
+        private RadioButton radioButton1;
     }
 }

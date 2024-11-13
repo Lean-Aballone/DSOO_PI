@@ -142,6 +142,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(LoginImageContainer);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "Login";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
