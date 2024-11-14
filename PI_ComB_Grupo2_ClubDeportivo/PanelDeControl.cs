@@ -95,13 +95,13 @@ namespace PI_ComB_Grupo2_ClubDeportivo {
         private void button3_Click(object sender, EventArgs e) {
             dataGridClear();
             label1.Visible = true;
-            label1.Text = "Fecha: " + DateTime.UtcNow.ToShortDateString();
+            label1.Text = "Fecha: " + DateTime.Now.ToShortDateString();
             string[] columns = { "ID_Socio", "Nombre", "Apellido", "DNI", "ID_Cuota", "Abonada" };
             string query = "SELECT " +
                 "socios.IdSocio as ID_Socio, socios.Nombre, Socios.Apellido, socios.DNI, cuota.Id as ID_Cuota, cuota.Pagada " +
                 "from comb_grupo2_clubdeportivo.socios " +
                 "inner join cuota on socios.IdSocio = cuota.IdSocio " +
-                "where cuota.Vencimiento = curdate();";
+                "where cuota.Vencimiento > curdate();";
             Action<int, MySqlDataReader> rows = (int renglon, MySqlDataReader reader) => {
                 dataGridView1.Rows[renglon].Cells[0].Value = Convert.ToString(reader.GetUInt32(0));  //IdSocio
                 dataGridView1.Rows[renglon].Cells[1].Value = Convert.ToString(reader.GetString(1));  //Nombre
@@ -112,9 +112,23 @@ namespace PI_ComB_Grupo2_ClubDeportivo {
                 dataGridView1.Rows[renglon].DefaultCellStyle.BackColor = reader.GetBoolean(5) ? Color.White : Color.MistyRose;
             };
             GenerarColumnasSocios(columns);
-            CargarGrilla(query,rows);
+            CargarGrilla(query, rows);
 
 
+        }
+
+        private void button4_Click(object sender, EventArgs e) {
+            dataGridClear();
+            string[] columns = { "IdActividad", "NombreActividad", "IdSocio", "NombreSocio" };
+            string query = "SELECT \r\n    actividades.Id AS IdActividad,\r\n    actividades.Nombre AS NombreActividad,\r\n    socios.IdSocio AS IdSocio,\r\n    socios.Nombre AS NombreSocio\r\nFROM \r\n    actividad_socio\r\nJOIN \r\n    actividades ON actividad_socio.IdActividad = actividades.Id\r\nJOIN \r\n    socios ON actividad_socio.IdSocio = socios.IdSocio\r\nORDER BY \r\n    actividades.Id;\r\n";
+            Action<int, MySqlDataReader> rows = (int renglon, MySqlDataReader reader) => {
+                dataGridView1.Rows[renglon].Cells[0].Value = Convert.ToString(reader.GetUInt32(0));  //Idact
+                dataGridView1.Rows[renglon].Cells[1].Value = Convert.ToString(reader.GetString(1));  //NombreAct
+                dataGridView1.Rows[renglon].Cells[2].Value = Convert.ToString(reader.GetUInt32(2));  //IdSocio
+                dataGridView1.Rows[renglon].Cells[3].Value = Convert.ToString(reader.GetString(3));  //NombreSocio
+            };
+            GenerarColumnasSocios(columns);
+            CargarGrilla(query, rows);
         }
     }
 }

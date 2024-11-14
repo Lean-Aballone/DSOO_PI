@@ -104,13 +104,14 @@
             // button4
             // 
             button4.Dock = DockStyle.Fill;
-            button4.Enabled = false;
             button4.Location = new Point(330, 370);
             button4.Margin = new Padding(10);
             button4.Name = "button4";
             button4.Size = new Size(140, 70);
             button4.TabIndex = 7;
+            button4.Text = "Listar Actividades";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button5
             // 
