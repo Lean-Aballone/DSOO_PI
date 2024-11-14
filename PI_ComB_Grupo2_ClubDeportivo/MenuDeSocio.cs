@@ -15,13 +15,20 @@ using System.Windows.Forms;
 namespace PI_ComB_Grupo2_ClubDeportivo {
     public partial class MenuDeSocio : Form {
         public MainWindow MainWindow { set; get; }
-        public MenuDeSocio(MainWindow mainWindow) {
+        private Actividades actividades;
+        Form form;
+        public MenuDeSocio(MainWindow MainWindow) {
+            this.MainWindow = MainWindow;
+            this.form = MainWindow;
             InitializeComponent();
-            MainWindow = mainWindow;
         }
-
+        public MenuDeSocio(Actividades actividades) {
+            this.actividades = actividades;
+            this.form = actividades;
+            InitializeComponent();
+        }
         private void button2_Click(object sender, EventArgs e) {
-            MainWindow.Show();
+            form.Show();
             this.Close();
         }
 
@@ -29,10 +36,22 @@ namespace PI_ComB_Grupo2_ClubDeportivo {
             Datos.Socios dato = new Datos.Socios();
             E_Socio socio = dato.getSocioFromDatabase(n, esDNI);
             if (socio.DNI.Equals(null)) { return; }
-            AdministrarSocio administrarSocio = new AdministrarSocio(MainWindow, socio);
-            administrarSocio.Show();
-            this.Close();
+            siguienteVentana(socio);
+        }
 
+        private void siguienteVentana(E_Socio socio) {
+            if (form.GetType() == typeof(MainWindow)) {
+                AdministrarSocio administrarSocio = new AdministrarSocio((MainWindow)form, socio);
+                administrarSocio.Show();
+                this.Close();
+            }
+            if (form.GetType() == typeof(Actividades)) {
+                actividades.Show();
+                actividades.setLabel(socio);
+                this.Close();
+
+            }
+            
         }
 
         private void button1_Click(object sender, EventArgs e) {

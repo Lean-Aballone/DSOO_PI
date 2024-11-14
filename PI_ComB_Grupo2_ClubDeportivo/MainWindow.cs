@@ -21,7 +21,8 @@ namespace PI_ComB_Grupo2_ClubDeportivo {
             label1.Text += " " + usuario.NombreUsu + " (" + usuario.RolUsu + ")";
             button1.Enabled = (usuario.RolUsu == "Administrador" || usuario.RolUsu == "Recepcionista");
             button2.Enabled = (usuario.RolUsu == "Administrador" || usuario.RolUsu == "Recepcionista");
-            //button3.Enabled = (usuario.RolUsu == "Administrador" || usuario.RolUsu == "Profesor");
+            button3.Enabled = (usuario.RolUsu == "Administrador" || usuario.RolUsu == "Profesor");
+            if (button3.Enabled) button3.Text = "Inscribir en actividad";
             //button4.Enabled = (usuario.RolUsu == "Administrador");
         }
 
@@ -45,6 +46,13 @@ namespace PI_ComB_Grupo2_ClubDeportivo {
         private void button4_Click(object sender, EventArgs e) {
             PanelDeControl panelDeControl = new PanelDeControl(this);
             panelDeControl.Show();
+            this.Hide();
+        }
+
+        private void button3_Click(object sender, EventArgs e) {
+            Actividades actividades = new Actividades(this);
+            MenuDeSocio menuDeSocio = new MenuDeSocio(actividades);
+            menuDeSocio.Show();
             this.Hide();
         }
     }

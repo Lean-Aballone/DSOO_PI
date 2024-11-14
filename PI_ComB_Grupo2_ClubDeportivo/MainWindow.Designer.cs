@@ -111,8 +111,8 @@
             button3.Name = "button3";
             button3.Size = new Size(350, 124);
             button3.TabIndex = 2;
-            button3.Text = "button3";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // button4
             // 
