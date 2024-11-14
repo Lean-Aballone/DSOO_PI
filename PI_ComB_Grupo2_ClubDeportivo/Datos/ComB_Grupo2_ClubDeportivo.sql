@@ -42,10 +42,16 @@ create table actividades(
 Id  int unsigned auto_increment,
 Nombre varchar(30),
 IdProfesor  int unsigned,
-IdSocio int unsigned,
 primary key (Id),
-foreign key (IdSocio) references socios(IdSocio),
 foreign key (IdProfesor) references profesores(Id)
+);
+
+CREATE TABLE actividad_socio (
+    IdActividad INT UNSIGNED,
+    IdSocio INT UNSIGNED,
+    PRIMARY KEY (IdActividad, IdSocio),
+    FOREIGN KEY (IdActividad) REFERENCES actividades(Id),
+    FOREIGN KEY (IdSocio) REFERENCES socios(IdSocio)
 );
 
 insert into actividades(Nombre,IDProfesor) values
@@ -54,6 +60,7 @@ insert into actividades(Nombre,IDProfesor) values
 ("Actividad3",3),
 ("Actividad4",4),
 ("Actividad5",5);
+
 
 insert into usuario(NombreUsu,PassUsu,RolUsu) values
 ('Usuario_a','a',99),
