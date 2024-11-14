@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using PI_ComB_Grupo2_ClubDeportivo.Entidades;
 
 namespace PI_ComB_Grupo2_ClubDeportivo.Datos {
-    internal class Conexion {
+    public class Conexion {
 
         // declaramos las variables
         private string baseDatos;
@@ -16,11 +17,36 @@ namespace PI_ComB_Grupo2_ClubDeportivo.Datos {
         private string clave;
         private static Conexion? con = null;
         private Conexion(){
+            bool correcto = false;
+            int mensaje;
             this.baseDatos = "ComB_Grupo2_ClubDeportivo";
             this.servidor = "localhost";
             this.puerto = "3306";
             this.usuario = "root";
             this.clave = "";
+
+            while (!correcto) {
+                string title = "DATOS DE INSTALACIÓN MySQL";
+                servidor = Microsoft.VisualBasic.Interaction.InputBox("Ingresar Servidor", title);
+                puerto = Microsoft.VisualBasic.Interaction.InputBox("Ingresar Puerto", title);
+                usuario = Microsoft.VisualBasic.Interaction.InputBox("Ingresar Usuario", title);
+                clave = Microsoft.VisualBasic.Interaction.InputBox("Ingresar clave", title);
+
+                mensaje = (int)MessageBox.Show("su ingreso: SERVIDOR = " +
+                servidor + " PUERTO= " + puerto + " USUARIO: " +
+                usuario + " CLAVE: " + clave,
+                "AVISO DEL SISTEMA", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+                if (mensaje != 6) {
+                    MessageBox.Show("INGRESE NUEVAMENTE LOS DATOS");
+                    correcto = false;
+                } else { 
+                    correcto = true;
+                }
+            }
+
+
         }
 
         public MySqlConnection CrearConexion() {
