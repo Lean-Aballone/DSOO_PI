@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PI_ComB_Grupo2_ClubDeportivo")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e766fa8756d432ffe63f9b1cc0adfb315a9c59d0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+51c4b7c5678a9172f57d0ade82fd6a6b664dba7a")]
 [assembly: System.Reflection.AssemblyProductAttribute("PI_ComB_Grupo2_ClubDeportivo")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PI_ComB_Grupo2_ClubDeportivo")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
