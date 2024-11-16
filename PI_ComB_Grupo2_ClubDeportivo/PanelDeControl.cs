@@ -119,12 +119,13 @@ namespace PI_ComB_Grupo2_ClubDeportivo {
 
         private void button4_Click(object sender, EventArgs e) {
             dataGridClear();
-            string[] columns = { "IdActividad", "NombreActividad", "IdSocio", "NombreSocio" };
-            string query = "SELECT \r\n    actividades.Id AS IdActividad,\r\n    actividades.Nombre AS NombreActividad,\r\n    socios.IdSocio AS IdSocio,\r\n    socios.Nombre AS NombreSocio\r\nFROM \r\n    actividad_socio\r\nJOIN \r\n    actividades ON actividad_socio.IdActividad = actividades.Id\r\nJOIN \r\n    socios ON actividad_socio.IdSocio = socios.IdSocio\r\nORDER BY \r\n    actividades.Id;\r\n";
+            string[] columns = { "IdActividad", "NombreActividad", "DNI", "Nombre" };
+            //string query = "SELECT \r\n    actividades.Id AS IdActividad,\r\n    actividades.Nombre AS NombreActividad,\r\n    socios.IdSocio AS IdSocio,\r\n    socios.Nombre AS NombreSocio\r\nFROM \r\n    actividad_socio\r\nJOIN \r\n    actividades ON actividad_socio.IdActividad = actividades.Id\r\nJOIN \r\n    socios ON actividad_socio.IdSocio = socios.IdSocio\r\nORDER BY \r\n    actividades.Id;\r\n";
+            string query = "SELECT \r\n    actividades.Id AS IdActividad, \r\n    actividades.Nombre AS NombreActividad, \r\n    socios.DNI AS DNI, \r\n    socios.Nombre AS NombreSocio \r\nFROM \r\n    actividad_socio \r\nJOIN \r\n    actividades ON actividad_socio.IdActividad = actividades.Id \r\nJOIN \r\n    socios ON actividad_socio.IdSocio = socios.IdSocio \r\n\r\nUNION \r\n\r\nSELECT \r\n    actividades.Id AS IdActividad, \r\n    actividades.Nombre AS NombreActividad, \r\n    actividad_NoSocio.DNI AS IdSocio, \r\n    actividad_NoSocio.Nombre AS NombreSocio \r\nFROM \r\n    actividad_NoSocio \r\nJOIN \r\n    actividades ON actividad_NoSocio.IdActividad = actividades.Id \r\n\r\nORDER BY \r\n    IdActividad;\r\n";
             Action<int, MySqlDataReader> rows = (int renglon, MySqlDataReader reader) => {
                 dataGridView1.Rows[renglon].Cells[0].Value = Convert.ToString(reader.GetUInt32(0));  //Idact
                 dataGridView1.Rows[renglon].Cells[1].Value = Convert.ToString(reader.GetString(1));  //NombreAct
-                dataGridView1.Rows[renglon].Cells[2].Value = Convert.ToString(reader.GetUInt32(2));  //IdSocio
+                dataGridView1.Rows[renglon].Cells[2].Value = Convert.ToString(reader.GetUInt32(2));  //DNI
                 dataGridView1.Rows[renglon].Cells[3].Value = Convert.ToString(reader.GetString(3));  //NombreSocio
             };
             GenerarColumnasSocios(columns);
