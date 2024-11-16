@@ -121,18 +121,11 @@ end
 
 delimiter ;
 
-
-
-
-
-
 create table roles(
 RolUsu int,
 NomRol varchar(30),
 constraint primary key(RolUsu)
 );
-
-
 
 insert into roles values
 (99,'Administrador'),
@@ -196,6 +189,15 @@ CREATE TABLE actividad_socio (
     PRIMARY KEY (IdActividad, IdSocio),
     FOREIGN KEY (IdActividad) REFERENCES actividades(Id),
     FOREIGN KEY (IdSocio) REFERENCES socios(IdSocio)
+);
+
+create table actividad_NoSocio(
+    IdActividad INT UNSIGNED,
+    Nombre varchar(30),
+	Apellido varchar(40),
+    DNI INT UNSIGNED UNIQUE,
+    PRIMARY KEY (IdActividad, DNI),
+    FOREIGN KEY (IdActividad) REFERENCES actividades(Id)
 );
 
 insert into actividades(Nombre,IDProfesor) values
