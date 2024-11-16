@@ -30,8 +30,13 @@
             pictureBox1 = new PictureBox();
             listBox1 = new ListBox();
             label1 = new Label();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            textBox1 = new TextBox();
+            textBox2 = new TextBox();
+            textBox3 = new TextBox();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -46,12 +51,14 @@
             tableLayoutPanel1.Controls.Add(pictureBox1, 2, 0);
             tableLayoutPanel1.Controls.Add(listBox1, 1, 0);
             tableLayoutPanel1.Controls.Add(label1, 0, 0);
+            tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 0, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.Size = new Size(800, 450);
             tableLayoutPanel1.TabIndex = 0;
             // 
@@ -119,11 +126,58 @@
             label1.Location = new Point(25, 30);
             label1.Margin = new Padding(25, 30, 25, 30);
             label1.Name = "label1";
-            tableLayoutPanel1.SetRowSpan(label1, 2);
-            label1.Size = new Size(150, 390);
+            label1.Size = new Size(150, 165);
             label1.TabIndex = 1;
             label1.Text = "label1";
             label1.Visible = false;
+            // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.ColumnCount = 1;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.Controls.Add(textBox1, 0, 0);
+            tableLayoutPanel2.Controls.Add(textBox2, 0, 1);
+            tableLayoutPanel2.Controls.Add(textBox3, 0, 2);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(3, 228);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 3;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel2.Size = new Size(194, 219);
+            tableLayoutPanel2.TabIndex = 6;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(15, 15);
+            textBox1.Margin = new Padding(15, 15, 30, 20);
+            textBox1.Name = "textBox1";
+            textBox1.PlaceholderText = "Nombre";
+            textBox1.Size = new Size(149, 23);
+            textBox1.TabIndex = 0;
+            textBox1.TextChanged += actividadSeleccionada;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(15, 87);
+            textBox2.Margin = new Padding(15, 15, 30, 20);
+            textBox2.Name = "textBox2";
+            textBox2.PlaceholderText = "Apellido";
+            textBox2.Size = new Size(149, 23);
+            textBox2.TabIndex = 1;
+            textBox2.TextChanged += actividadSeleccionada;
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(15, 159);
+            textBox3.Margin = new Padding(15, 15, 30, 20);
+            textBox3.Name = "textBox3";
+            textBox3.PlaceholderText = "DNI";
+            textBox3.Size = new Size(149, 23);
+            textBox3.TabIndex = 2;
+            textBox3.TextChanged += actividadSeleccionada;
             // 
             // Actividades
             // 
@@ -139,6 +193,8 @@
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -150,5 +206,9 @@
         private PictureBox pictureBox1;
         private Button button3;
         private Button button2;
+        private TableLayoutPanel tableLayoutPanel2;
+        private TextBox textBox1;
+        private TextBox textBox2;
+        private TextBox textBox3;
     }
 }

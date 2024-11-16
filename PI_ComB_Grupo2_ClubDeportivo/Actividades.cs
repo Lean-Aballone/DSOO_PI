@@ -17,22 +17,32 @@ namespace PI_ComB_Grupo2_ClubDeportivo {
         E_Socio socio;
         Image original;
         Form form;
+        public bool inscripcionAbonada { get; set; }
         string actividad;
+        string soloNumeros;
+        bool esSocio;
         public Actividades(Form form) {
             this.form = form;
-
-            MenuDeSocio menuDeSocio = new MenuDeSocio(this);
-            this.Hide();
-
+            esSocio = false;
             InitializeComponent();
-            
+            listBox1.Enabled = false;
             original = pictureBox1.Image;
             pictureBox1.Image = MakeGrayscale((Bitmap)pictureBox1.Image);
 
         }
 
+        public Actividades(Form form, E_Socio socio) {
+            this.esSocio = true;
+            this.form = form;
+            this.socio = socio;
+            InitializeComponent();
+            original = pictureBox1.Image;
+            pictureBox1.Image = MakeGrayscale((Bitmap)pictureBox1.Image);
+        }
+
 
         public void setLabel(E_Socio socio) {
+            tableLayoutPanel2.Visible = false;
             this.socio = socio;
             label1.Text = socio.Nombre + " " + socio.Apellido + 
                 "\nEstado: " + (((bool)socio.activo) ? "activo" : "Inactivo") +
@@ -45,9 +55,24 @@ namespace PI_ComB_Grupo2_ClubDeportivo {
         }
 
         private void button2_Click(object sender, EventArgs e) {
-            string query = "INSERT INTO actividad_socio (IdActividad, IdSocio) VALUES (" + 
-                (listBox1.SelectedIndex + 1).ToString() +
-                "," + socio.IdSocio + ");";
+            if (esSocio) {
+                ActividadSocio(); 
+            }
+            else { 
+                E_NoSocio noSocio = new E_NoSocio();
+                noSocio.Nombre = textBox1.Text + (listBox1.SelectedIndex + 1).ToString(); 
+                noSocio.Apellido = textBox2.Text;
+                noSocio.DNI = Convert.ToUInt32(soloNumeros);
+                PagoCuota pagoCuota = new PagoCuota(noSocio, this);
+                pagoCuota.Show();
+                this.Hide();
+            }
+        }
+
+        private void ActividadSocio() {
+            string query = "INSERT INTO actividad_socio (IdActividad, IdSocio) VALUES (" +
+                    (listBox1.SelectedIndex + 1).ToString() +
+                    "," + socio.IdSocio + ");";
             string rta;
             MySqlConnection sqlCon = new MySqlConnection();
             try {
@@ -91,12 +116,23 @@ namespace PI_ComB_Grupo2_ClubDeportivo {
         }
 
         private void actividadSeleccionada(object sender, EventArgs e) {
-            if ((bool)socio.activo && socio.FichaMedica is not null) { 
-                 actividad = listBox1.SelectedItem.ToString(); 
-                  pictureBox1.Image = original;
-                   button2.Enabled = true;
+            if (socio is not null) {
+                if ((bool)socio.activo && socio.FichaMedica is not null) {
+                    actividad = listBox1.SelectedItem.ToString();
+                    pictureBox1.Image = original;
+                    button2.Enabled = true;
+                }
+            } else {
+                if ( !String.IsNullOrEmpty(textBox1.Text) && !String.IsNullOrEmpty(textBox2.Text) && !String.IsNullOrEmpty(textBox3.Text)) {
+                    listBox1.Enabled = true;
+                    soloNumeros = String.Concat((textBox3.Text.Where(Char.IsDigit).ToArray()));
+                    if (listBox1.SelectedItem is not null) { 
+                        actividad = listBox1.SelectedItem.ToString(); 
+                        pictureBox1.Image = original;
+                        button2.Enabled = true;
+                    }
+                }
             }
-            
         }
     }
 }
