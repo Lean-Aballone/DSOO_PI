@@ -50,9 +50,11 @@ namespace PI_ComB_Grupo2_ClubDeportivo {
         }
 
         private void button3_Click(object sender, EventArgs e) {
-            Actividades actividades = new Actividades(this);
-            MenuDeSocio menuDeSocio = new MenuDeSocio(actividades);
-            menuDeSocio.Show();
+            //Actividades actividades = new Actividades(this);
+            //MenuDeSocio menuDeSocio = new MenuDeSocio(actividades);
+            //menuDeSocio.Show();
+            SocioNoSocio socioNoSocio = new SocioNoSocio(this); 
+            socioNoSocio.Show();
             this.Hide();
         }
     }

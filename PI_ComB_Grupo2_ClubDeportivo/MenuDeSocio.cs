@@ -15,16 +15,16 @@ using System.Windows.Forms;
 namespace PI_ComB_Grupo2_ClubDeportivo {
     public partial class MenuDeSocio : Form {
         public MainWindow MainWindow { set; get; }
-        private Actividades actividades;
+        private SocioNoSocio SocioNoSocio;
         Form form;
         public MenuDeSocio(MainWindow MainWindow) {
             this.MainWindow = MainWindow;
             this.form = MainWindow;
             InitializeComponent();
         }
-        public MenuDeSocio(Actividades actividades) {
-            this.actividades = actividades;
-            this.form = actividades;
+        public MenuDeSocio(SocioNoSocio socioNoSocio) {
+            this.SocioNoSocio = socioNoSocio;
+            this.form = socioNoSocio;
             InitializeComponent();
         }
         private void button2_Click(object sender, EventArgs e) {
@@ -45,7 +45,8 @@ namespace PI_ComB_Grupo2_ClubDeportivo {
                 administrarSocio.Show();
                 this.Close();
             }
-            if (form.GetType() == typeof(Actividades)) {
+            if (form.GetType() == typeof(SocioNoSocio)) {
+                Actividades actividades = new Actividades(SocioNoSocio, socio);
                 actividades.Show();
                 actividades.setLabel(socio);
                 this.Close();
