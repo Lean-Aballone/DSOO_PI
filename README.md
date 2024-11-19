@@ -11,12 +11,15 @@
 ***
 ### Pasos para la ejecución:
 
-    1. Dirigirse a la carpeta DSOO_PI/PI_ComB_Grupo2_ClubDeportivo/Datos/
+    1. Dirigirse a la carpeta DSOO_PI/
     2. Ejecutar script sql 'ComB_Grupo2_ClubDeportivo.sql'
-    3. Ejecutar script sql 'ProcedureLogin.sql'
-    4. Ejecutar script sql 'ProcedureInsertSocio.sql'
-    5. Abrir el proyecto y ejecutar.
-    6. Ingresar usuario y contraseña registrado en la base de datos..
+    3. Dirigirse a la carpeta DSOO_PI/Release
+    4. Ejecutar PI_ComB_Grupo2_ClubDeportivo.exe
+    5. Ingresar usuario y contraseña, cliquear 'Ingresar'
+    6. El sistema pedirá información de la base de datos
+       Servidor, puerto (3306), usuario db, constraseña db
+    7. Confirmar lo ingresado.
+    
 ***
 ### Usuarios disponibles: 
 | Usuario | Contraseña | Rol    |
